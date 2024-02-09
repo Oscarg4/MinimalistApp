@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutUsFragment">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="About Us"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/descriptionTextView"/>
+
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="Bienvenido a la app de Minimalist. Minimalist es una aplicación para crear recetas y poder ver también las recetas de otras personas."
+        android:layout_marginTop="16dp"
+        android:textSize="16dp"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        app:layout_constraintBottom_toTopOf="@+id/teamInfoTextView"/>
+
+    <TextView
+        android:id="@+id/teamInfoTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="Equipo:\n\n- Oscar Gimeno Sáez\n- Arnau Figueras\n- Pol Corado"
+        android:layout_marginTop="16dp"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionTextView"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

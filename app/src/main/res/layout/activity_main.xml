@@ -1,50 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:gravity="center"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ProgressBar
-        android:id="@+id/progress"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/dataView"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_margin="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="data" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/ContainerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:name="com.example.minimalistapp.HomeFragment"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnFetchData"
-        android:text="fetch_data"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:theme="@style/Widget.AppCompat.Button.Colored"/>
-    <Button
-        android:id="@+id/btnPutData"
-        android:text="put_data"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:theme="@style/Widget.AppCompat.Button.Colored"/>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        app:labelVisibilityMode="auto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu" />
 
-    <TextView
-        android:autoLink="web"
-        android:gravity="center"
-        android:layout_marginTop="5dp"
-        android:text="Hola"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
