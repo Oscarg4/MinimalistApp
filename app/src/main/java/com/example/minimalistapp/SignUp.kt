@@ -1,21 +1,27 @@
 package com.example.minimalistapp
 
-
 import android.content.Intent
-import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.minimalistapp.Retrofit.ApiService
+import com.example.minimalistapp.Retrofit.Conn
+import com.example.minimalistapp.model.Users
 import com.google.android.material.textfield.TextInputEditText
-import com.vishnusivadas.advanced_httpurlconnection.PutData
-
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import kotlin.coroutines.suspendCoroutine
 
 class SignUp : AppCompatActivity() {
-
 
     private lateinit var textInputEditTextFullname: TextInputEditText
     private lateinit var textInputEditTextUsername: TextInputEditText
@@ -25,15 +31,11 @@ class SignUp : AppCompatActivity() {
     private lateinit var textViewLogin: TextView
     private lateinit var progressBar: ProgressBar
 
-
-    // Cambia esta URL por la dirección de tu servidor XAMPP
-    private val signUpUrl = "https://dqasbaut.lucusprueba.es/insertar.php"
-
+    private val apiService = Conn.retrofit.create(ApiService::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
-
 
         textInputEditTextFullname = findViewById(R.id.fullname)
         textInputEditTextUsername = findViewById(R.id.username)
@@ -43,13 +45,11 @@ class SignUp : AppCompatActivity() {
         textViewLogin = findViewById(R.id.loginText)
         progressBar = findViewById(R.id.progress)
 
-
         textViewLogin.setOnClickListener {
             val intent = Intent(applicationContext, Login::class.java)
             startActivity(intent)
             finish()
         }
-
 
         buttonSignUp.setOnClickListener {
             val fullname = textInputEditTextFullname.text.toString()
@@ -57,53 +57,50 @@ class SignUp : AppCompatActivity() {
             val password = textInputEditTextPassword.text.toString()
             val email = textInputEditTextEmail.text.toString()
 
-
             if (fullname.isNotEmpty() && username.isNotEmpty() && password.isNotEmpty() && email.isNotEmpty()) {
-                progressBar.visibility = View.VISIBLE
-                SignUpTask().execute(fullname, username, password, email)
+                GlobalScope.launch(Dispatchers.Main) {
+                    try {
+                        var dates = Users(
+                            name = fullname,
+                            surname = username,
+                            email = email,
+                            password = password
+                        )
+                        a(dates)
+                    } catch (e: Exception) {
+                        Log.e("Resultado", "Failed")
+                    }
+                }
             } else {
                 Toast.makeText(applicationContext, "All fields required", Toast.LENGTH_SHORT).show()
             }
         }
 
 
-        // Agregar un botón para ir a MainActivity
-        val buttonGoToMain: Button = findViewById(R.id.buttonGoToMain)
-        buttonGoToMain.setOnClickListener {
-            val intent = Intent(applicationContext, MainActivity::class.java)
-            startActivity(intent)
-        }
     }
+    private suspend fun a(users: Users){
+        return suspendCoroutine {continuation ->
+            val call = apiService.addUsers(users)
+            call.enqueue(object : Callback<Void> {
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    //progressBar.visibility = View.GONE
+                    if (response.isSuccessful) {
+                        Toast.makeText(applicationContext, "Sign Up Success", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(applicationContext, Login::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        Toast.makeText(applicationContext, "Error occurred", Toast.LENGTH_SHORT).show()
+                    }
+                }
 
-
-    inner class SignUpTask : AsyncTask<String, Void, String>() {
-        override fun doInBackground(vararg params: String): String {
-            val fullname = params[0]
-            val username = params[1]
-            val password = params[2]
-            val email = params[3]
-
-
-            val field = arrayOf("fullname", "username", "password", "email")
-            val data = arrayOf(fullname, username, password, email)
-            val putData = PutData(signUpUrl, "POST", field, data)
-            if (putData.startPut() && putData.onComplete()) {
-                return putData.getResult()
-            }
-            return "Error occurred"
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    progressBar.visibility = View.GONE
+                    Log.e("Resultado", t.toString())
+                    Toast.makeText(applicationContext, "Error occurreasdasd", Toast.LENGTH_SHORT).show()
+                }
+            })
         }
 
-
-        override fun onPostExecute(result: String) {
-            progressBar.visibility = View.GONE
-            if (result == "Sign Up Success") {
-                Toast.makeText(applicationContext, result, Toast.LENGTH_SHORT).show()
-                val intent = Intent(applicationContext, Login::class.java)
-                startActivity(intent)
-                finish()
-            } else {
-                Toast.makeText(applicationContext, result, Toast.LENGTH_SHORT).show()
-            }
-        }
     }
 }
