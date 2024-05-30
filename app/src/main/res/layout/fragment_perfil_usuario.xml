@@ -17,7 +17,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <!-- Nombre de usuario -->
         <TextView
             android:id="@+id/usernameTextView"
             android:layout_width="match_parent"
@@ -26,7 +25,6 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <!-- Correo electrónico -->
         <TextView
             android:id="@+id/emailTextView"
             android:layout_width="match_parent"
@@ -34,7 +32,6 @@
             android:paddingBottom="8dp"
             android:textSize="16sp" />
 
-        <!-- Nueva contraseña -->
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
@@ -43,7 +40,6 @@
             android:hint="Nueva contraseña"
             android:inputType="textPassword" />
 
-        <!-- Botón para cambiar contraseña -->
         <Button
             android:id="@+id/changePasswordButton"
             android:layout_width="match_parent"
@@ -54,7 +50,6 @@
             android:textColor="@android:color/white"
             android:layout_marginBottom="8dp" />
 
-        <!-- Botón para eliminar cuenta -->
         <Button
             android:id="@+id/deleteAccountButton"
             android:layout_width="match_parent"
@@ -65,7 +60,6 @@
             android:textColor="@android:color/white"
             android:layout_marginBottom="8dp" />
 
-        <!-- Botón para cerrar sesión -->
         <Button
             android:id="@+id/signOutButton"
             android:layout_width="match_parent"
@@ -75,6 +69,4 @@
             android:backgroundTint="@android:color/darker_gray"
             android:textColor="@android:color/white" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-

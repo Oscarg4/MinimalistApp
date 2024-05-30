@@ -1,7 +1,6 @@
 package com.example.minimalistapp
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -63,11 +62,14 @@ class PerfilFragment : Fragment() {
             transaction.commit()
         }
 
-
         // Configurar listener del botón de favoritos
         view.findViewById<Button>(R.id.favoritesButton).setOnClickListener {
             // Navegar a la página de favoritos
-            // Aquí debes implementar la lógica para la navegación
+            val fragment = FavoritosUsuario()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.ContainerView, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
     }
 

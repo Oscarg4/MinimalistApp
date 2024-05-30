@@ -77,7 +77,7 @@ class Login : AppCompatActivity() {
                     if (response.isSuccessful) {
                         Toast.makeText(applicationContext, "Log Up Success", Toast.LENGTH_SHORT).show()
                         val user = response.body()
-                        Log.e("Resultado", user.toString())
+                        Log.e("Resultado1234", user.toString())
                         if (user != null) {
                             sharedPreferences.addUser(user)
                         }

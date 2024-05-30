@@ -25,7 +25,10 @@
             android:exported="false" />
         <activity
             android:name=".SignUp"
-            android:exported="true">
+            android:exported="true"/>
+            <activity
+                android:name=".splash"
+                android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

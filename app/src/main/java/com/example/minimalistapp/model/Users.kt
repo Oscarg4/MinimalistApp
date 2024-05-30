@@ -1,7 +1,7 @@
 package com.example.minimalistapp.model
 
 data class Users(
-    var id: Int = 0,
+    var id_Users: Int,
     var name: String,
     var surname: String,
     var email: String,

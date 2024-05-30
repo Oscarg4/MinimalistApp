@@ -25,6 +25,11 @@ class SharedPreferences(context: Context) {
             null
         }
     }
+    fun clearUser() {
+        val editor = sharedPreferences.edit()
+        editor.clear()
+        editor.apply()
+    }
 
 
 }

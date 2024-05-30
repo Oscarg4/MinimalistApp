@@ -1,7 +1,5 @@
 package com.example.minimalistapp.Retrofit
 
-import android.util.Log
-import android.widget.Toast
 import com.example.minimalistapp.model.Products
 import com.example.minimalistapp.model.Users
 import okhttp3.MultipartBody
@@ -29,11 +27,12 @@ interface ApiService {
     @POST("users/add")
     fun addUsers(@Body users: Users): Call<Void>
 
-    @PUT("users/update/{usersId}")
-    fun actualizarUser(@Body users: Users, @Path("usersId") usersId: Long): Call<Void>
+    @PUT("users/update/{userId}")
+    fun actualizarUser(@Body users: Users, @Path("userId") userId: Int): Call<Void>
 
-    @DELETE("users/delete/{usersId}")
-    fun eliminarUsers(@Path("usersId") usersId: Long): Call<Void>
+    // Eliminar un usuario por ID
+    @DELETE("users/delete/{userId}")
+    fun eliminarUsers(@Path("userId") userId: Long): Call<Void>
 
     @GET("users/baja")
     fun obtenerTodosLosUsersBaja(): Call<List<Users>>
@@ -48,14 +47,8 @@ interface ApiService {
     @GET("products")
     fun obtenerTodosLosProductos(): Call<List<Products>>
 
-    @FormUrlEncoded
     @POST("products/add")
-    fun agregarProducto(
-        @Field("name") name: String,
-        @Field("description") description: String,
-        @Field("price") price: Double
-    ): Call<Void>
-
+    fun agregarProducto(@Body product: Products): Call<Void>
 
 
     // Actualizar un producto existente
@@ -65,4 +58,6 @@ interface ApiService {
     // Eliminar un producto por ID
     @DELETE("products/delete/{productId}")
     fun eliminarProducto(@Path("productId") productId: Long): Call<Void>
+
+
 }

@@ -60,13 +60,11 @@ class SignUp : AppCompatActivity() {
             if (fullname.isNotEmpty() && username.isNotEmpty() && password.isNotEmpty() && email.isNotEmpty()) {
                 GlobalScope.launch(Dispatchers.Main) {
                     try {
-                        var dates = Users(
-                            name = fullname,
-                            surname = username,
-                            email = email,
-                            password = password
-                        )
-                        a(dates)
+                        val user = Users(name = fullname, email = email, password = password, surname = username, id_Users = 0)
+                        a(user)
+                        val intent = Intent(applicationContext, Login::class.java)
+                        startActivity(intent)
+                        finish()
                     } catch (e: Exception) {
                         Log.e("Resultado", "Failed")
                     }
