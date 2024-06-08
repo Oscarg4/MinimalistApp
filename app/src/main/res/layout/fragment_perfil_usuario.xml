@@ -5,6 +5,20 @@
     android:layout_height="match_parent"
     tools:context=".PerfilUsuario">
 
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsbold"
+        android:gravity="center"
+        android:text="Edit Perfil Page"
+        android:textSize="30sp"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"

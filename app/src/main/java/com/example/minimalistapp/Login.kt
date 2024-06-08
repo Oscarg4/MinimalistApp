@@ -96,6 +96,5 @@ class Login : AppCompatActivity() {
                 }
             })
         }
-
     }
 }
