@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
-            android:text="About Us Page"
+            android:text="About Us"
             android:textSize="36sp"
             android:textColor="@color/colorAccent"
             app:layout_constraintTop_toTopOf="parent"
@@ -84,7 +84,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Arnau Figueras"
+                android:text="Arnau Figueras Moreno"
                 android:textSize="20sp"
                 android:gravity="center"/>
 
@@ -110,7 +110,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pol Corado"
+                android:text="Pol Corado Martí"
                 android:textSize="20sp"
                 android:gravity="center"/>
 

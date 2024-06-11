@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinsbold"
         android:gravity="center"
-        android:text="Perfil Page"
+        android:text="Profile"
         android:textSize="30sp"
         android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +40,8 @@
             android:text="Nombre de Usuario"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:padding="16dp" />
+            android:padding="16dp"
+            android:contentDescription="Nombre de usuario" />
     </androidx.cardview.widget.CardView>
 
     <!-- CardView para el correo electrónico -->
@@ -60,7 +61,8 @@
             android:layout_height="wrap_content"
             android:text="correo@example.com"
             android:textSize="16sp"
-            android:padding="16dp" />
+            android:padding="16dp"
+            android:contentDescription="Correo electrónico" />
     </androidx.cardview.widget.CardView>
 
     <!-- Botón para editar perfil -->
@@ -77,7 +79,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        android:layout_marginEnd="16dp"
+        android:contentDescription="Botón para editar perfil" />
 
     <!-- Botón para favoritos -->
     <Button
@@ -93,6 +96,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        android:layout_marginEnd="16dp"
+        android:contentDescription="Botón para ver favoritos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

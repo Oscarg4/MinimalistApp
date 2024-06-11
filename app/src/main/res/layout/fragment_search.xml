@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinsbold"
         android:gravity="center"
-        android:text="Search Page"
+        android:text="Search"
         android:textSize="30sp"
         android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
