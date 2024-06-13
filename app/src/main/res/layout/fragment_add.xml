@@ -4,6 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsbold"
+        android:gravity="center"
+        android:text="Create"
+        android:textSize="30sp"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp" />
+
     <EditText
         android:id="@+id/productNameEditText"
         android:layout_width="0dp"
@@ -14,7 +28,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/titleTextView" />
 
     <EditText
         android:id="@+id/productDescriptionEditText"
@@ -26,7 +40,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productNameEditText" />
+        app:layout_constraintTop_toBottomOf="@id/productNameEditText" />
 
     <EditText
         android:id="@+id/productPriceEditText"
@@ -38,7 +52,49 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productDescriptionEditText" />
+        app:layout_constraintTop_toBottomOf="@id/productDescriptionEditText" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerImageSelect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@id/productPriceEditText" >
+
+        <TextView
+            android:id="@+id/productImageEditText"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="8dp"
+            android:textSize="18sp"
+            android:hint="Image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/buttonSelectImage"/>
+
+        <ImageView
+            android:id="@+id/ImageSelected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Button
+            android:id="@+id/buttonSelectImage"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Seleccionar Imagen"
+            android:background="@color/cardview_dark_background"
+            android:paddingLeft="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Spinner
         android:id="@+id/categorySpinner"
@@ -46,9 +102,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/productPriceEditText"
-        app:layout_constraintStart_toStartOf="@+id/productPriceEditText"
-        app:layout_constraintTop_toBottomOf="@+id/productPriceEditText"
+        app:layout_constraintEnd_toEndOf="@id/productPriceEditText"
+        app:layout_constraintStart_toStartOf="@id/productPriceEditText"
+        app:layout_constraintTop_toBottomOf="@id/containerImageSelect"
         android:entries="@array/category_options" />
 
     <Button
@@ -60,7 +116,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categorySpinner" />
+        app:layout_constraintTop_toBottomOf="@id/categorySpinner" />
 
     <ImageView
         android:id="@+id/ivFoto"
@@ -69,6 +125,6 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addButton" />
+        app:layout_constraintTop_toBottomOf="@id/addButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

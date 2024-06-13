@@ -1,6 +1,7 @@
 package com.example.minimalistapp.Retrofit
 
 import com.example.minimalistapp.model.Products
+import com.example.minimalistapp.model.ProductsNew
 import com.example.minimalistapp.model.Users
 import okhttp3.MultipartBody
 import retrofit2.Call
@@ -45,7 +46,10 @@ interface ApiService {
 
     // Api de los productos
     @GET("products")
-    fun obtenerTodosLosProductos(): Call<List<Products>>
+    fun obtenerTodosLosProductos(): Call<List<ProductsNew>>
+
+    @GET("products/{id}")
+    fun obtenerProducto(@Path("id") id : Int): Call<List<ProductsNew>>
 
     @POST("products/add")
     fun agregarProducto(@Body product: Products): Call<Void>
