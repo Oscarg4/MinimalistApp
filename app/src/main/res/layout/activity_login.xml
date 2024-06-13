@@ -6,26 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".Login">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
+    <!-- LinearLayout para agrupar el título de login y el icono -->
+    <LinearLayout
+        android:id="@+id/titleLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:fontFamily="@font/poppinsbold"
+        android:orientation="horizontal"
         android:gravity="center"
-        android:text="@string/login"
-        android:textColor="@color/colorAccent"
-        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:targetApi="jelly_bean" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsbold"
+            android:gravity="center"
+            android:text="@string/login"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/appIcon"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/app_icon"
+            app:srcCompat="@drawable/minal" />
+
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/titleLayout"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5">
 
         <com.google.android.material.textfield.TextInputLayout
@@ -63,11 +80,11 @@
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/password"
                 android:drawableEnd="@drawable/ic_pass"
                 android:fontFamily="@font/poppinsmedium"
-                android:inputType="textPassword"
                 android:importantForAccessibility="yes"
-                android:contentDescription="@string/password" />
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <ProgressBar
