@@ -8,6 +8,8 @@ data class ProductsNew(
     val description: String?,
     val price: Double,
     val category: String,
-    val imageURL: String
+    val imageURL: String,
+    var favorite: Boolean = false
 )
+
 
