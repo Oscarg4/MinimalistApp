@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -10,7 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="16dp">
 
         <ImageView
             android:id="@+id/imageProduct"
@@ -19,78 +21,12 @@
             android:layout_marginVertical="20dp"
             android:layout_marginLeft="20dp"/>
 
-        <!-- Icono de favorito -->
-        <ImageView
-            android:id="@+id/favoriteImageView"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-
-            android:src="@drawable/ic_favorite_empty"
-            android:contentDescription="Favorite Icon"
-            android:layout_gravity="end"
-            android:layout_marginBottom="8dp" />
-
-        <!-- Nombre del producto -->
-        <TextView
-            android:id="@+id/productNameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Product Name"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="4dp" />
-
-        <!-- Descripción del producto -->
-        <TextView
-            android:id="@+id/productDescriptionTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Product Description"
-            android:textSize="14sp"
-            android:layout_marginBottom="4dp" />
-
-        <!-- Precio del producto -->
-        <TextView
-            android:id="@+id/productPriceTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Product Price"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimary"
-            android:layout_marginBottom="4dp" />
-
-        <!-- Nombre de la categoría -->
-        <TextView
-            android:id="@+id/categoryNameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Category Name"
-            android:textSize="14sp" />
-
+            android:layout_weight="1"
             android:orientation="vertical"
-            android:padding="16dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="end">
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-                <ImageView
-                    android:id="@+id/favoriteImageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_favorite_empty"
-                    android:layout_gravity="top"
-                    android:layout_marginEnd="8dp"
-                    android:contentDescription="" />
-
-            </LinearLayout>
+            android:gravity="start">
 
             <TextView
                 android:id="@+id/productNameTextView"
@@ -98,14 +34,16 @@
                 android:layout_height="wrap_content"
                 android:text="Product Name"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
 
             <TextView
                 android:id="@+id/productDescriptionTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Product Description"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
 
             <TextView
                 android:id="@+id/productPriceTextView"
@@ -113,8 +51,8 @@
                 android:layout_height="wrap_content"
                 android:text="Product Price"
                 android:textSize="16sp"
-                android:textColor="@android:color/holo_red_dark" />
-
+                android:textColor="@color/colorPrimary"
+                android:layout_marginBottom="4dp" />
 
             <TextView
                 android:id="@+id/categoryNameTextView"
@@ -124,5 +62,16 @@
                 android:textSize="14sp" />
 
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/favoriteImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_favorite_empty"
+            android:contentDescription="Favorite Icon"
+            android:layout_gravity="end"
+            android:layout_marginBottom="8dp" />
+
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>
