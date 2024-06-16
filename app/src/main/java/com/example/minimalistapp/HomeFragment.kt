@@ -19,9 +19,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var productAdapter: ProductAdapter
+    private lateinit var sharedPreferences: SharedPreferences
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        sharedPreferences = SharedPreferences(requireContext())
 
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -40,6 +44,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 if (response.isSuccessful) {
                     val products = response.body()
                     products?.let {
+                        for (product in products) {
+                            for (fav in sharedPreferences.getFavorites()) {
+                                if (product.id_Products == product.id_Products) {
+                                    product.favorite = true
+                                    break
+                                }
+                            }
+                        }
                         productAdapter.actualizarLista(it)
                     }
                 } else {
