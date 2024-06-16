@@ -43,6 +43,9 @@ class ProductAdapter(private val context: Context, private var products: List<Pr
         private var fav = false
 
         fun bind(product: ProductsNew) {
+            val decodedBytes = Base64.decode(product.imageURL, Base64.DEFAULT)
+            val bitmap = BitmapFactory.decodeStream(ByteArrayInputStream(decodedBytes))
+            productImage.setImageBitmap(bitmap)
             productNameTextView.text = product.name
             productDescriptionTextView.text = product.description
             productPriceTextView.text = product.price.toString()
