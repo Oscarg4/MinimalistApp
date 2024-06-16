@@ -1,16 +1,16 @@
 package com.example.minimalistapp
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.minimalistapp.Retrofit.ApiService
 import com.example.minimalistapp.Retrofit.Conn
 import com.example.minimalistapp.model.Products
+import com.example.minimalistapp.model.ProductsNew
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,21 +26,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        // Pasar el contexto y una lista vacía al crear una instancia de ProductAdapter
-        productAdapter = ProductAdapter(requireContext(), emptyList())
+        productAdapter = ProductAdapter(requireContext(), emptyList() )
         recyclerView.adapter = productAdapter
 
-        // Llamar al método para obtener los productos
         obtenerProductos()
     }
 
     private fun obtenerProductos() {
         val apiService = Conn.retrofit.create(ApiService::class.java)
 
-        apiService.obtenerTodosLosProductos().enqueue(object : Callback<List<Products>> {
-            override fun onResponse(call: Call<List<Products>>, response: Response<List<Products>>) {
+        apiService.obtenerTodosLosProductos().enqueue(object : Callback<List<ProductsNew>> {
+            override fun onResponse(call: Call<List<ProductsNew>>, response: Response<List<ProductsNew>>) {
                 if (response.isSuccessful) {
-                    // Actualizar el adaptador con la lista de productos obtenida
                     val products = response.body()
                     products?.let {
                         productAdapter.actualizarLista(it)
@@ -50,9 +47,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 }
             }
 
-            override fun onFailure(call: Call<List<Products>>, t: Throwable) {
+            override fun onFailure(call: Call<List<ProductsNew>>, t: Throwable) {
                 Toast.makeText(requireContext(), "Error de conexión al obtener productos.", Toast.LENGTH_SHORT).show()
             }
         })
     }
+
+
 }

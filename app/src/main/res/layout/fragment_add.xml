@@ -13,10 +13,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
+      
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/productDescriptionEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="DescripciÃ³n del producto"
+        android:inputType="textMultiLine"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productNameEditText" />
+
 
             <TextView
                 android:id="@+id/titleTextView"
@@ -29,6 +43,7 @@
                 android:textColor="@color/colorAccent"
                 android:layout_marginTop="16dp" />
 
+
             <EditText
                 android:id="@+id/productNameEditText"
                 android:layout_width="match_parent"
@@ -38,6 +53,60 @@
                 android:inputType="text"
                 android:textSize="18sp"
                 android:padding="12dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerImageSelect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@id/productPriceEditText" >
+
+        <TextView
+            android:id="@+id/productImageEditText"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="8dp"
+            android:textSize="18sp"
+            android:hint="Image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/buttonSelectImage"/>
+
+        <ImageView
+            android:id="@+id/ImageSelected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Button
+            android:id="@+id/buttonSelectImage"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Seleccionar Imagen"
+            android:background="@color/cardview_dark_background"
+            android:paddingLeft="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Spinner
+        android:id="@+id/categorySpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/productPriceEditText"
+        app:layout_constraintStart_toStartOf="@id/productPriceEditText"
+        app:layout_constraintTop_toBottomOf="@id/containerImageSelect"
+        android:entries="@array/category_options" />
+
 
             <EditText
                 android:id="@+id/productDescriptionEditText"
@@ -80,6 +149,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_gravity="center_horizontal" />
 
+
             <ImageView
                 android:id="@+id/ivFoto"
                 android:layout_width="match_parent"
@@ -90,3 +160,6 @@
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

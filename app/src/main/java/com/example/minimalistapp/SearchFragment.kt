@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.minimalistapp.Retrofit.ApiService
 import com.example.minimalistapp.Retrofit.Conn
 import com.example.minimalistapp.model.Products
+import com.example.minimalistapp.model.ProductsNew
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,8 +26,8 @@ class SearchFragment : Fragment() {
     private lateinit var searchView: SearchView
     private lateinit var spinner: Spinner
     private lateinit var productsAdapter: ProductAdapter
-    private var productsList = mutableListOf<Products>()
-    private var filteredProductsList = mutableListOf<Products>()
+    private var productsList = mutableListOf<ProductsNew>()
+    private var filteredProductsList = mutableListOf<ProductsNew>()
 
     private val apiService: ApiService by lazy {
         Conn.retrofit.create(ApiService::class.java)
@@ -96,8 +97,8 @@ class SearchFragment : Fragment() {
 
     private fun obtenerProductos() {
         val call = apiService.obtenerTodosLosProductos()
-        call.enqueue(object : Callback<List<Products>> {
-            override fun onResponse(call: Call<List<Products>>, response: Response<List<Products>>) {
+        call.enqueue(object : Callback<List<ProductsNew>> {
+            override fun onResponse(call: Call<List<ProductsNew>>, response: Response<List<ProductsNew>>) {
                 if (response.isSuccessful) {
                     response.body()?.let { products ->
                         // Limpiar la lista y agregar los nuevos productos
@@ -114,7 +115,7 @@ class SearchFragment : Fragment() {
                 }
             }
 
-            override fun onFailure(call: Call<List<Products>>, t: Throwable) {
+            override fun onFailure(call: Call<List<ProductsNew>>, t: Throwable) {
                 Toast.makeText(requireContext(), "Error al conectarse al servidor", Toast.LENGTH_SHORT).show()
             }
         })

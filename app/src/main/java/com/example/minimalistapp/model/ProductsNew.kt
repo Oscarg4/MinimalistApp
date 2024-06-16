@@ -2,7 +2,8 @@ package com.example.minimalistapp.model
 
 
 
-data class Products(
+data class ProductsNew(
+    val id_Products: Int,
     val name: String,
     val description: String?,
     val price: Double,
