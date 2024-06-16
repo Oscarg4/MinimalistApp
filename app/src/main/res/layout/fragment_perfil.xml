@@ -16,22 +16,23 @@
         android:text="Profile"
         android:textSize="30sp"
         android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="24dp" />
 
     <!-- CardView para el nombre de usuario -->
     <androidx.cardview.widget.CardView
         android:id="@+id/usernameCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="24dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
         app:layout_constraintTop_toBottomOf="@id/titleTextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5">
 
         <TextView
             android:id="@+id/usernameTextView"
@@ -49,11 +50,13 @@
         android:id="@+id/emailCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
         app:layout_constraintTop_toBottomOf="@id/usernameCardView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5">
 
         <TextView
             android:id="@+id/emailTextView"
@@ -71,13 +74,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Editar Perfil"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:backgroundTint="@color/colorPrimary"
         android:textColor="@android:color/white"
         app:layout_constraintTop_toBottomOf="@id/emailCardView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="Botón para editar perfil" />
@@ -88,7 +91,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Favoritos"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:backgroundTint="@color/colorPrimary"
         android:textColor="@android:color/white"
         app:layout_constraintTop_toBottomOf="@id/editProfileButton"

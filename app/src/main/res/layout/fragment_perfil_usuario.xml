@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,6 +8,7 @@
     tools:context=".PerfilUsuario"
     android:background="@android:color/background_light">
 
+    <!-- Título -->
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="match_parent"
@@ -22,6 +24,7 @@
         android:layout_marginTop="16dp"
         android:contentDescription="Título de la página: Editar Perfil" />
 
+    <!-- Contenedor de elementos editables -->
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -35,22 +38,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="18dp"
+            android:padding="16dp"
             android:background="@android:color/white"
             android:elevation="4dp"
             android:layout_margin="16dp">
 
-            <!-- Removed usernameTextView and emailTextView -->
-
+            <!-- EditText para nueva contraseña -->
             <EditText
                 android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="18dp"
+                android:layout_marginBottom="16dp"
                 android:hint="Nueva contraseña"
                 android:inputType="textPassword"
                 android:contentDescription="Campo para ingresar nueva contraseña" />
 
+            <!-- Botón para cambiar contraseña -->
             <Button
                 android:id="@+id/changePasswordButton"
                 android:layout_width="match_parent"
@@ -64,6 +67,7 @@
                 android:drawableStart="@drawable/ic_lock"
                 android:drawablePadding="8dp" />
 
+            <!-- Botón para eliminar cuenta -->
             <Button
                 android:id="@+id/deleteAccountButton"
                 android:layout_width="match_parent"
@@ -77,6 +81,7 @@
                 android:drawableStart="@drawable/ic_delete"
                 android:drawablePadding="8dp" />
 
+            <!-- Botón para cerrar sesión -->
             <Button
                 android:id="@+id/signOutButton"
                 android:layout_width="match_parent"
