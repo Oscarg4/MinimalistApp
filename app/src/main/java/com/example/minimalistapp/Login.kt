@@ -75,7 +75,7 @@ class Login : AppCompatActivity() {
                 override fun onResponse(call: Call<Users>, response: Response<Users>) {
                     //progressBar.visibility = View.GONE
                     if (response.isSuccessful) {
-                        Toast.makeText(applicationContext, "Log Up Success", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(applicationContext, "Log In Success", Toast.LENGTH_SHORT).show()
                         val user = response.body()
                         Log.e("Resultado1234", user.toString())
                         if (user != null) {

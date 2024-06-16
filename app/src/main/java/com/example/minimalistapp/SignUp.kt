@@ -88,7 +88,7 @@ class SignUp : AppCompatActivity() {
                         startActivity(intent)
                         finish()
                     } else {
-                        Toast.makeText(applicationContext, "Error occurred", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(applicationContext, "Error Ocurred", Toast.LENGTH_SHORT).show()
                     }
                 }
 
